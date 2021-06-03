@@ -76,29 +76,30 @@ getTitle(){
                                 {this.getTitle()}
                             <div className="card-body">
                                 <form>
-                                    <div className="form-group">
+                                    <div style={{marginTop:"10px"}}  className="form-group">
                                         <label>First Name:</label>
                                         <input placeholder="First Name" name="firstName" 
                                         className="form-control" value={this.state.firstName} 
                                         onChange={this.changeFirstNameHandler}/>
                                     </div>
                                     
-                                    <div className="form-group">
+                                    <div style={{marginTop:"10px"}} className="form-group">
                                         <label>Last Name:</label>
                                         <input placeholder="Last Name" name="lastName" 
                                         className="form-control" value={this.state.lastName} 
                                         onChange={this.changeLastNameHandler}/>
                                     </div>
 
-                                    <div className="form-group">
+                                    <div style={{marginTop:"10px"}} className="form-group">
                                         <label>Email Id:</label>
                                         <input placeholder="Email Id" name="emailId" 
                                         className="form-control" value={this.state.emailId} 
                                         onChange={this.changeEmailHandler}/>
                                     </div>
-
+                                    <div style={{marginTop:"10px"}} className="form-group">
                                     <button className="btn btn-success" onClick={this.saveEmployee}>Save</button>
                                      <button className="btn btn-danger" onClick={this.cancel.bind(this)} style={{marginLeft:"10px"}}>Cancel</button>
+                                    </div>
                                 </form>
 
                             </div>

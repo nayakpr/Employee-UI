@@ -10,6 +10,7 @@ class EmployeeListComponent extends Component {
             }
             this.addEmployee = this.addEmployee.bind(this);
             this.editEmployee = this.editEmployee.bind(this);
+            this.deleteEmployee= this.deleteEmployee.bind(this);
     }
     componentDidMount(){
         EmployeeService.getEmployees().then((res) => {
@@ -21,6 +22,15 @@ class EmployeeListComponent extends Component {
     }
     editEmployee(id){
         this.props.history.push(`/addEmployee/${id}`);
+    }    
+    viewEmployee(id){
+        this.props.history.push(`/viewEmployee/${id}`);
+    }
+    deleteEmployee(id){
+
+        EmployeeService.deleteEmployees(id).then(res =>{
+        this.setState({employees: this.state.employees.filter(emp => emp.id !== id)});
+        });        
     }
     render() {
         return (
@@ -50,6 +60,8 @@ class EmployeeListComponent extends Component {
                                         <td>{emp.emailId}</td>  
                                         <td>
                                             <button onClick={() => this.editEmployee(emp.id)} className="btn btn-info">Update</button>
+                                            <button style={{marginLeft:"10px"}} onClick={() => this.deleteEmployee(emp.id)} className="btn btn-danger">Delete</button>
+                                            <button style={{marginLeft:"10px"}} onClick={() => this.viewEmployee(emp.id)} className="btn btn-info">View</button>
                                         </td>                                     
                                    </tr>
                                )
